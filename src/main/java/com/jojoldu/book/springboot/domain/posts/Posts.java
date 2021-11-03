@@ -29,5 +29,10 @@ public class Posts {
 
     }
 
+    public void udpate(String title, String content){
+        this.title =title;
+        this.content=content;
+    }
+
 
 }
