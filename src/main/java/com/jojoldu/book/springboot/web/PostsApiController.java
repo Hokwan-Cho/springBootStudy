@@ -6,6 +6,7 @@ import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
 import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -19,7 +20,7 @@ public class PostsApiController {
         return postsSerivce.save(requestDto);
     }
 
-    @PutMapping("/api/v1/posts{id}")
+    @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsSerivce.udpate(id, requestDto);
     }
@@ -29,4 +30,11 @@ public class PostsApiController {
             return postsSerivce.findById(id);
     }
 
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete (@PathVariable Long id){
+        postsSerivce.delete(id);
+        return id;
+    }
 }
+
+
